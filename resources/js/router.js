@@ -5,6 +5,15 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/', 
-        component: () => import('./AppRoot.vue')
-    }
+        component: () => import('./components/HomeComponent')
+    },
+
 ]
+
+const router = new VueRouter({
+    routes,
+    hashbang: false,
+    mode: 'history',
+})
+
+export default router;
