@@ -1,28 +1,27 @@
-window.Vue = require('vue')
+window.Vue = require('vue');
 
-import Vue from 'vue'
 import Vuetify from 'vuetify'
 import axios from 'axios'
 import router from './router'
-
-import AppRoot from './AppRoot'
 
 window.EventBus = new Vue()
 window.axios = axios.create()
 
 
-const app = new Vue({
-    el: '#app',
-    router,
-    components: {
-        AppRoot
-    }
-});
-
 Vue.use(Vuetify, {
     iconfont: 'md',
     // override colors
     theme: {
-        primary: "#ff5722",
+        primary: "#3F51B5",
+    }
+});
+
+import AppRoot from './AppRoot.vue'
+const app = new Vue({
+    el: '#app',
+    Vuetify,
+    router,
+    components: {
+        AppRoot
     }
 });

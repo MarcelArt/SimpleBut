@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="IE=Edge">
 
-        <title>UMKMKu</title>
+        <title>GameCoding</title>
+        <link rel="stylesheet" text="text/css" media="screen" href="{{ asset('css/app.css') }}">
     </head>
     <body>
         <div id="app">

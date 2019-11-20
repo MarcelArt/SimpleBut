@@ -1,18 +1,17 @@
 <template>
-  <div>
-      <router-view>
-      </router-view>
-  </div>
+ <div>
+     <v-app>
+         <router-view>
+
+     </router-view>
+     </v-app>
+ </div>
 </template>
 
 <script>
-export default {
-    mounted() {
-        console.log('hello worold')
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        }
     }
-}
 </script>
-
-<style>
-
-</style>
