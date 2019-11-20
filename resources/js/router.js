@@ -5,6 +5,6 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/', 
-        component:
+        component: () => import('./AppRoot.vue')
     }
 ]

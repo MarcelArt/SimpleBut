@@ -1,5 +1,6 @@
 require('./bootstrap');
 
+
 import Vuetify from 'vuetify'
 import axios from 'axios'
 import router from './router'
