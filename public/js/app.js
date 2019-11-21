@@ -43386,13 +43386,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-var routes = [{
+var routes = [// {
+//     path: '/', component: () => import('./AppRoot.vue' /* webpackChunkName: "js/App-Root" */)
+// },
+{
   path: '/',
-  component: function component() {
-    return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./AppRoot.vue */ "./resources/js/AppRoot.vue"));
-  }
-}, {
-  path: '/home',
   component: function component() {
     return __webpack_require__.e(/*! import() | js/Home.vue */ "js/Home.vue").then(__webpack_require__.bind(null, /*! ./components/Home.vue */ "./resources/js/components/Home.vue"));
   }
