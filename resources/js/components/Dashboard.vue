@@ -9,6 +9,14 @@
           </v-list-tile-action>
           <v-list-tile-title>{{name}}</v-list-tile-title>
         </v-list-tile>
+        <v-list-tile @click="getInfo">
+          <v-list-tile-action>
+            <v-icon>account_circle</v-icon>
+          </v-list-tile-action> 
+          <v-list-tile-title>Test</v-list-tile-title>
+        </v-list-tile>
+        
+        
        <v-list-tile @click="logout">
           <v-list-tile-action>
             <v-icon>logout</v-icon>
@@ -33,20 +41,25 @@
 </template>
 
 <script>
+import Menu from './Menu'
 export default {
+    components: {
+      Menu,
+    },
     data: () => ({
       show: false,
       drawer: null,
       name: null,
       id: null,
       score:null,
+      
+      
      beforeMount(){
         this.setComponent(this.$route.params.page)
         this.user = JSON.parse(localStorage.getItem('user'))
         axios.defaults.headers.common['Content-Type'] = 'application/json'
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('jwt')
-       
-        },
+      },
   }),
   methods:{
     async getInfo(){

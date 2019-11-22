@@ -5,6 +5,14 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/', component: () => import('./components/Dashboard.vue' /* webpackChunkName: "js/App-Root" */), meta: {requiresAuth: true},
+        children: [
+            {
+                path: '/', component: () => import('./components/Menu.vue'),
+            },
+            {
+                path: 'test', component: () => import('./components/Test.vue'),
+            },
+        ]
     },
     {
         path: '/login', component: () => import('./components/Login.vue' /*webpackChunkName: "js/Home.vue" */)
