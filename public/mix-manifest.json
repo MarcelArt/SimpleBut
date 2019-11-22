@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/App-Root.js": "/js/App-Root.js",
     "/js/Home.vue.js": "/js/Home.vue.js"
 }

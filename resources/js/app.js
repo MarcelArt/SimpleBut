@@ -16,6 +16,9 @@ Vue.use(Vuetify, {
     }
 });
 
+import User from './components/helpers/User'
+Vue.prototype.$user = User;
+
 import AppRoot from './AppRoot.vue'
 const app = new Vue({
     el: '#app',
