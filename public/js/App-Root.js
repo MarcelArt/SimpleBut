@@ -95,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getInfo: function getInfo() {
-      this.name = localStorage.getItem('Name');
+      this.name = localStorage.getItem('name');
     },
     logout: function logout() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function logout$(_context) {

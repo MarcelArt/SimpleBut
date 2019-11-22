@@ -24,7 +24,7 @@ class User {
             const user = JSON.stringify(data.user);
             const token = data.token;
             const name = JSON.stringify(data.user.name)
-            AppStorage.store(user,token);
+            AppStorage.store(user,token, name);
             AppStorage.getInfo(name);
             resolve();
         })

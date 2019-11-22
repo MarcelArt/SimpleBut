@@ -44156,10 +44156,16 @@ function () {
       localStorage.setItem('user', user);
     }
   }, {
+    key: "storeName",
+    value: function storeName(name) {
+      localStorage.setItem('name', JSON.parse(name));
+    }
+  }, {
     key: "store",
-    value: function store(user, token) {
+    value: function store(user, token, name) {
       this.storeToken(token);
       this.storeUser(user);
+      this.storeUser(name);
     }
   }, {
     key: "getInfo",
@@ -44171,6 +44177,7 @@ function () {
     value: function clear() {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      localStorage.removeItem('name');
     }
   }, {
     key: "getToken",
@@ -44244,7 +44251,7 @@ function () {
         var user = JSON.stringify(data.user);
         var token = data.token;
         var name = JSON.stringify(data.user.name);
-        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].store(user, token);
+        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].store(user, token, name);
         _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].getInfo(name);
         resolve();
       });

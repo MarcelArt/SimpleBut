@@ -81,7 +81,7 @@ export default {
   }),
   methods:{
     getInfo(){
-      this.name = localStorage.getItem('Name');
+      this.name = localStorage.getItem('name');
     },  
     
    async logout(){

@@ -6,10 +6,14 @@ class AppStorage
     storeUser(user){
         localStorage.setItem('user', user);
     }
+    storeName(name){
+        localStorage.setItem('name', JSON.parse(name));
+    }
 
-    store(user,token){
+    store(user,token, name){
         this.storeToken(token);
         this.storeUser(user);
+        this.storeUser(name);
     }
 
     getInfo(name){
@@ -19,6 +23,7 @@ class AppStorage
     clear(){
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+        localStorage.removeItem('name');
     }
 
     getToken(){
