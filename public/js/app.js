@@ -44161,16 +44161,23 @@ function () {
       localStorage.setItem('name', JSON.parse(name));
     }
   }, {
+    key: "storeId",
+    value: function storeId(id) {
+      localStorage.setItem('id', JSON.parse(id));
+    }
+  }, {
     key: "store",
-    value: function store(user, token, name) {
+    value: function store(user, token, name, id) {
       this.storeToken(token);
       this.storeUser(user);
-      this.storeUser(name);
+      this.storeName(name);
+      this.storeId(id);
     }
   }, {
     key: "getInfo",
-    value: function getInfo(name) {
+    value: function getInfo(name, id) {
       this.storeName(name);
+      this.storeId(id);
     }
   }, {
     key: "clear",
@@ -44178,6 +44185,7 @@ function () {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       localStorage.removeItem('name');
+      localStorage.removeItem('id');
     }
   }, {
     key: "getToken",
@@ -44251,8 +44259,9 @@ function () {
         var user = JSON.stringify(data.user);
         var token = data.token;
         var name = JSON.stringify(data.user.name);
-        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].store(user, token, name);
-        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].getInfo(name);
+        var id = JSON.stringify(data.user.id);
+        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].store(user, token, name, id);
+        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].getInfo(name, id);
         resolve();
       });
     }

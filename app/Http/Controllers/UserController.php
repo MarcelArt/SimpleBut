@@ -36,7 +36,10 @@ class UserController extends Controller
             'message' => 'Successfully created user!'
         ], 201);   
     }
-    public function addScore(User $user){
+    public function getUser(User $user){
+        return response()->json($user,200); 
+    }
+    public function addScore(Request $request,User $user){
         $status = $user->update(
             $request->only(['score'])
         );

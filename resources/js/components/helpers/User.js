@@ -8,8 +8,7 @@ class User {
                 'Content-type': 'application/json',
             }
         })
-    }
-        
+    }        
     signup(data){
         return axios.post('/api/register', data, {
             headers: {
@@ -18,18 +17,17 @@ class User {
             }
         })
     }
-
     storeSession(data) {
         return new Promise((resolve, reject) => {
             const user = JSON.stringify(data.user);
             const token = data.token;
             const name = JSON.stringify(data.user.name)
-            AppStorage.store(user,token, name);
-            AppStorage.getInfo(name);
+            const id = JSON.stringify(data.user.id)
+            AppStorage.store(user,token, name, id);
+            AppStorage.getInfo(name,id);
             resolve();
         })
     }
-
     loggedIn(){
         const storedToken = AppStorage.getToken();
         if(!!storedToken){
@@ -38,31 +36,26 @@ class User {
             return false;
         }
     }
-
     getToken() {
         const storedToken = AppStorage.getToken();
         return storedToken;
     }
-
     logout(){
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve();
             }, 500);
         })
-    }
-    
+    }    
     clearStorage() {
         AppStorage.clear();
     }
-
     info(){
         if(this.loggedIn){
             return AppStorage.getUser();
         }
         return console.log("please login first");
     }
-
     updateInfo() {
         return new Promise((resolve, reject) => {
             if(this.loggedIn) {
@@ -89,5 +82,4 @@ class User {
         })
     }
 }
-
 export default User = new User();

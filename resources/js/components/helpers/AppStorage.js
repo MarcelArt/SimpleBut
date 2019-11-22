@@ -9,21 +9,27 @@ class AppStorage
     storeName(name){
         localStorage.setItem('name', JSON.parse(name));
     }
-
-    store(user,token, name){
-        this.storeToken(token);
-        this.storeUser(user);
-        this.storeUser(name);
+    storeId(id){
+        localStorage.setItem('id', JSON.parse(id));
     }
 
-    getInfo(name){
+    store(user,token,name,id){
+        this.storeToken(token);
+        this.storeUser(user);
         this.storeName(name);
+        this.storeId(id);
+    }
+
+    getInfo(name, id){
+        this.storeName(name);
+        this.storeId(id);
     }
 
     clear(){
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         localStorage.removeItem('name');
+        localStorage.removeItem('id');
     }
 
     getToken(){

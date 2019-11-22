@@ -46,45 +46,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       show: false,
       drawer: null,
       name: null,
+      id: null,
+      score: null,
       beforeMount: function beforeMount() {
         this.setComponent(this.$route.params.page);
         this.user = JSON.parse(localStorage.getItem('user'));
@@ -95,15 +64,34 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getInfo: function getInfo() {
-      this.name = localStorage.getItem('name');
-    },
-    logout: function logout() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function logout$(_context) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getInfo$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.prev = 0;
-              _context.next = 3;
+              this.name = localStorage.getItem('name');
+              this.id = localStorage.getItem('id');
+              _context.next = 4;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.get('api/user/' + this.id));
+
+            case 4:
+              res = _context.sent;
+              this.score = res.data.score;
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    },
+    logout: function logout() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function logout$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.$user.logout());
 
             case 3:
@@ -111,35 +99,20 @@ __webpack_require__.r(__webpack_exports__);
               this.$router.replace({
                 path: "/login"
               });
-              _context.next = 10;
+              _context2.next = 10;
               break;
 
             case 7:
-              _context.prev = 7;
-              _context.t0 = _context["catch"](0);
-              alert(_context.t0);
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](0);
+              alert(_context2.t0);
 
             case 10:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
       }, null, this, [[0, 7]]);
-    },
-    jurnal: function jurnal() {
-      this.$router.push('/admin');
-    },
-    materi: function materi() {
-      this.$router.push('/admin/materi');
-    },
-    laporan: function laporan() {
-      this.$router.push('/admin/laporan');
-    },
-    settings: function settings() {
-      this.$router.push('/admin/pengaturan');
-    },
-    aboutus: function aboutus() {
-      this.$router.push('/admin/aboutus');
     }
   },
   mounted: function mounted() {
@@ -199,77 +172,6 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "v-list-tile",
-                { on: { click: _vm.jurnal } },
-                [
-                  _c(
-                    "v-list-tile-action",
-                    [_c("v-icon", [_vm._v("folder_open")])],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-list-tile-title", [_vm._v("Jurnal")])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                { on: { click: _vm.materi } },
-                [
-                  _c(
-                    "v-list-tile-action",
-                    [_c("v-icon", [_vm._v("menu_book")])],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-list-tile-title", [_vm._v("Materi")])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                { on: { click: _vm.laporan } },
-                [
-                  _c(
-                    "v-list-tile-action",
-                    [_c("v-icon", [_vm._v("assessment")])],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-list-tile-title", [_vm._v("Laporan")])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                { on: { click: _vm.settings } },
-                [
-                  _c(
-                    "v-list-tile-action",
-                    [_c("v-icon", [_vm._v("settings_applications")])],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-list-tile-title", [_vm._v("Pengaturan")])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                { on: { click: _vm.aboutus } },
-                [
-                  _c("v-list-tile-action", [_c("v-icon", [_vm._v("info")])], 1),
-                  _vm._v(" "),
-                  _c("v-list-tile-title", [_vm._v("Tentang")])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
                 { on: { click: _vm.logout } },
                 [
                   _c(
@@ -291,7 +193,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-toolbar",
-        { attrs: { color: "white", app: "" } },
+        { attrs: { color: "indigo", dark: "", app: "" } },
         [
           _c("v-toolbar-side-icon", {
             on: {
@@ -301,6 +203,10 @@ var render = function() {
               }
             }
           }),
+          _vm._v(" "),
+          _c("v-toolbar-title", [_vm._v("GameCoding")]),
+          _vm._v(" "),
+          _c("v-toolbar-title", [_vm._v(_vm._s(_vm.score))]),
           _vm._v(" "),
           _c("v-toolbar-items", { staticClass: "hidden-sm-and-down" })
         ],
