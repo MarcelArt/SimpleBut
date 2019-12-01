@@ -10,7 +10,7 @@
           ></v-text-field>
         </v-flex>
 
-        <p>* from employees</p>
+        <p>* from departements</p>
         <br>
         
 
